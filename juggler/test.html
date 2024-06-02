@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スロットゲーム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ジャグラーシミュレータ</h1>
+    </header>
+    <main>
+        <div class="container">
+            <!-- 設定情報 -->
+            <div id="settingInfo" style="display: none;"></div>
+            <!-- スロット開始後のメッセージ -->
+            <div class="startAfterInfo">当選後スタート回数
+            <div class="info" id="startAfter"></div>
+            </div>
+            <!-- コントロールボタン -->
+            <div class="controls">
+                <button id="startButton" onclick="startGame()">開始</button>
+                <button id="retryButton" onclick="invest()" style="display:none;">再投資</button>
+                <button id="continueButton" onclick="continueGame()" style="display:none;">続ける</button>
+                <button id="stopButton" onclick="stopGame()" style="display:none;">終了</button>
+            </div>
+            <!-- スピード調整 -->
+            <div class="speed-control">
+                <label for="speedControl">スピード調整:</label>
+                <input type="range" id="speedControl" min="1" max="500" value="100" onchange="adjustSpinSpeed(this.value)">
+            </div>
+            <!-- 結果情報 -->
+            <div class="result-info">
+                <div class="result-item">残りメダル: <span id="remainingMedals">0</span></div>
+                <div class="result-item">回転数数: <span id="totalSpins">0</span></div>
+                <div class="result-item" id="additionalText"></div>
+                <div class="result-item" id="totalInvestment">総投資: 0円</div>
+            </div>
+            <!-- 結果メッセージ -->
+            <div class="result" id="resultMessage"></div>
+        </div>
+    </main>
+    <!-- スランプグラフ -->
+    <div class="slumpGraphcontainer">
+        <div id="slumpGraph"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
